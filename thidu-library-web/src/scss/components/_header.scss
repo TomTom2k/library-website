@@ -1,0 +1,65 @@
+.header {
+    @include flex(center, space-between);
+    height: 8rem;
+    padding: 1rem 2rem;
+    background: $dark-bg;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    box-shadow: 0 0.5rem 1rem #ffffff1a;
+    z-index: 1123456789;
+
+    &__logo {
+        width: 25%;
+
+        .logo__text {
+            font-size: 3rem;
+            font-weight: 700;
+            letter-spacing: 0.4rem;
+            color: $txt-white;
+        }
+    }
+
+    &__search {
+        @include flex(center, center);
+        width: 25%;
+        input {
+            outline: none;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 1rem;
+        }
+
+        label {
+            margin-left: 1rem;
+            color: $txt-main-color;
+        }
+    }
+
+    &__navbar {
+        width:  50%;
+
+        .navbar__list {
+                @include flex(center, space-evenly);
+
+
+                &__item {
+                    position: relative;
+                    text-align: center;
+                }
+                
+                &__item:hover {
+                    opacity: 0.9;
+                }
+
+                &__item a {
+                    font-size: 1.6rem;
+                    font-weight: 500;
+                    color:  $txt-main-color;
+                }
+
+            }
+    }
+    
+    
+}
