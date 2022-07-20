@@ -8,7 +8,7 @@ let getDescribe = (describe) => {
 
 const Book = ({ id, title, image, rate, describe }) => {
 	return (
-		<Link to={`book/${id}`} className="book">
+		<div className="book">
 			<div className="book__image">
 				<img src={image} alt="Chưa cập nhật" />
 			</div>
@@ -22,7 +22,7 @@ const Book = ({ id, title, image, rate, describe }) => {
 					{getDescribe(describe) || 'Đang cập nhật'}
 				</div>
 			</div>
-		</Link>
+		</div>
 	);
 };
 

@@ -18,6 +18,14 @@ def getBooks(request):
 
 
 @api_view(['GET'])
+def getBook(request, pk):
+    if request.method == 'GET':
+        book = Book.objects.get(id=pk)
+        serializer = BookSerializer(book, many=False)
+        return Response(serializer.data)
+
+
+@api_view(['GET'])
 def getTags(request):
     if request.method == 'GET':
         tags = Tag.objects.all()
