@@ -8,21 +8,24 @@ const LibraryPage = () => {
 	let [list, setList] = useState([]);
 
 	useEffect(() => {
-		fetch('https://library-website-api.herokuapp.com/api/books/tags/')
+		fetch('/books/tags/')
 			.then((res) => res.json())
 			.then((data) => {
 				setTags(data);
 			});
 
-		fetch('https://library-website-api.herokuapp.com/api/books/')
+		fetch('/books/')
 			.then((res) => res.json())
 			.then((data) => {
 				setBooks(data);
+				setList(data);
 			});
 	}, []);
 
 	useEffect(() => {
-		setList(books.filter((book) => book.tags.includes(tag)));
+		tag != 0
+			? setList(books.filter((book) => book.tags.includes(tag)))
+			: setList(books);
 	}, [tag]);
 
 	return (
