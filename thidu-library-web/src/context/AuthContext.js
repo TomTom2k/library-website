@@ -22,16 +22,19 @@ export const AuthProvider = ({ children }) => {
 
 	let login = async (e) => {
 		e.preventDefault();
-		let res = await fetch('/token/', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({
-				username: e.target.username.value,
-				password: e.target.password.value,
-			}),
-		});
+		let res = await fetch(
+			'https://library-website-api.herokuapp.com/api/token/',
+			{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					username: e.target.username.value,
+					password: e.target.password.value,
+				}),
+			}
+		);
 		let data = await res.json();
 		if (res.status == 200) {
 			setAuthToken(data);
@@ -51,17 +54,20 @@ export const AuthProvider = ({ children }) => {
 
 	let register = async (e) => {
 		e.preventDefault();
-		let res = await fetch('/register/', {
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-			},
-			body: JSON.stringify({
-				username: e.target.username.value,
-				email: e.target.email.value,
-				password: e.target.password.value,
-			}),
-		});
+		let res = await fetch(
+			'https://library-website-api.herokuapp.com/api/register/',
+			{
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({
+					username: e.target.username.value,
+					email: e.target.email.value,
+					password: e.target.password.value,
+				}),
+			}
+		);
 
 		let data = res.json();
 

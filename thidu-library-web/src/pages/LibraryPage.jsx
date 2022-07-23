@@ -8,13 +8,13 @@ const LibraryPage = () => {
 	let [list, setList] = useState([]);
 
 	useEffect(() => {
-		fetch('/books/tags/')
+		fetch('https://library-website-api.herokuapp.com/api/books/tags/')
 			.then((res) => res.json())
 			.then((data) => {
 				setTags(data);
 			});
 
-		fetch('/books/')
+		fetch('https://library-website-api.herokuapp.com/api/books/')
 			.then((res) => res.json())
 			.then((data) => {
 				setBooks(data);

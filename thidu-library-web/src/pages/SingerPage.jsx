@@ -5,7 +5,7 @@ const SingerPage = () => {
 	let { id } = useParams();
 	let [book, setBook] = useState('');
 	useEffect(() => {
-		fetch(`/books/book/${id}/`)
+		fetch(`https://library-website-api.herokuapp.com/api/books/book/${id}/`)
 			.then((res) => res.json())
 			.then((data) => setBook(data));
 	}, []);

@@ -31,7 +31,7 @@ const Header = () => {
 						{!user ? (
 							<Link to="/login">Đăng nhập</Link>
 						) : (
-							<Link to="/account">Tài khoảng</Link>
+							<Link to="/account">Tài khoản</Link>
 						)}
 					</li>
 				</ul>
