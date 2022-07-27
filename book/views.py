@@ -3,8 +3,8 @@ from re import M
 from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
-from .serializer import BookSerializer, TagSerializer
-from .models import Book, Tag
+from .serializer import BookSerializer, TagSerializer, EventSerializer
+from .models import Book, Tag, Event
 
 # Create your views here.
 
@@ -30,4 +30,12 @@ def getTags(request):
     if request.method == 'GET':
         tags = Tag.objects.all()
         serializer = TagSerializer(tags, many=True)
+        return Response(serializer.data)
+
+
+@api_view(['GET'])
+def getEvents(request):
+    if request.method == 'GET':
+        Events = Event.objects.all()
+        serializer = EventSerializer(Events, many=True)
         return Response(serializer.data)

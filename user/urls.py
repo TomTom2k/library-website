@@ -7,7 +7,6 @@ from . import views
 
 urlpatterns = [
     path('', views.getRouter),
-    path('books/', include('book.urls')),
     path('register/', views.createUser),
 
 
