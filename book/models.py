@@ -8,7 +8,7 @@ from colorfield.fields import ColorField
 
 class Book(models.Model):
     class Meta:
-        ordering = ['active', 'title']
+        ordering = ['active', 'views', 'title']
 
     title = models.CharField(max_length=255)
     image = models.CharField(max_length=255)

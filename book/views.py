@@ -12,7 +12,7 @@ from .models import Book, Tag, Event
 @api_view(['GET'])
 def getBooks(request):
     if request.method == 'GET':
-        books = Book.objects.all()
+        books = Book.objects.filter(active=True)
         serializer = BookSerializer(books, many=True)
         return Response(serializer.data)
 
@@ -28,7 +28,7 @@ def getBook(request, pk):
 @api_view(['GET'])
 def getTags(request):
     if request.method == 'GET':
-        tags = Tag.objects.all()
+        tags = Tag.objects.filter(active=True)
         serializer = TagSerializer(tags, many=True)
         return Response(serializer.data)
 
@@ -36,6 +36,6 @@ def getTags(request):
 @api_view(['GET'])
 def getEvents(request):
     if request.method == 'GET':
-        Events = Event.objects.all()
+        Events = Event.objects.filter(active=True)
         serializer = EventSerializer(Events, many=True)
         return Response(serializer.data)
