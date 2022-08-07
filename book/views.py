@@ -28,7 +28,7 @@ def getBook(request, pk):
 @api_view(['GET'])
 def getTags(request):
     if request.method == 'GET':
-        tags = Tag.objects.filter(active=True)
+        tags = Tag.objects.all()
         serializer = TagSerializer(tags, many=True)
         return Response(serializer.data)
 
